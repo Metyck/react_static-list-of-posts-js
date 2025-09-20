@@ -1,9 +1,13 @@
 import './UserInfo.scss';
 
 export const UserInfo = ({ user }) => {
-  return (
-    <a className="UserInfo" href={`mailto:${user.email}`}>
-      {user.name}
-    </a>
-  );
+  if (user) {
+    return (
+      <a className="UserInfo" href={`mailto:${user.email}`}>
+        {user.name}
+      </a>
+    );
+  }
+
+  return <span>Unknown user</span>;
 };
